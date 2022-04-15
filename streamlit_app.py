@@ -1,4 +1,4 @@
-from datetime import time, datetime
+from datetime import time, datetime, timedelta
 import numpy as np
 import altair as alt
 import pandas as pd
@@ -49,12 +49,23 @@ def day_eight():
      st.write('Values:', values)
      # Example 3
      st.subheader('Range time slider')
-     appointment = st.slider("Schedule your appointment:", value=(time(11, 30), time(12, 45)))
+     appointment = st.slider("Schedule your appointment:", value=st.session_state.slider_value, on_change=slider_change, key='slider_value')
      st.write("You're scheduled for:", appointment)
      # Example 4
      st.subheader('Datetime slider')
      start_time = st.slider("When do you start?", value=datetime(2020, 1, 1, 9, 30), format="MM/DD/YY - hh:mm")
      st.write("Start time:", start_time)
+
+def slider_change():
+     dt1 = datetime.combine(datetime.today(), st.session_state.slider_value[0])
+     dt2 = datetime.combine(datetime.today(), st.session_state.slider_value[1])
+     delta = dt2 - dt1
+     if (delta < timedelta(hours=2)):
+          hr = dt1 + timedelta(hours=2)
+          st.session_state.slider_value = (st.session_state.slider_value[0], time(hr.hour, hr.minute))
+
+if 'slider_value' not in st.session_state:
+    st.session_state.slider_value = (time(11, 30), time(12, 45))
 
 # map the inputs to the function blocks
 days = {
