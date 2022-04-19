@@ -37,6 +37,14 @@ def day_five():
      st.write(c)
 
 def day_eight():
+     def slider_change():
+          dt1 = datetime.combine(datetime.today(), st.session_state.slider_value[0])
+          dt2 = datetime.combine(datetime.today(), st.session_state.slider_value[1])
+          delta = dt2 - dt1
+          if (delta < timedelta(hours=2)):
+               hr = dt1 + timedelta(hours=2)
+               st.session_state.slider_value = (st.session_state.slider_value[0], time(hr.hour, hr.minute))
+
      st.header('st.slider')
      # Example 1
      st.subheader('Slider')
@@ -56,13 +64,15 @@ def day_eight():
      start_time = st.slider("When do you start?", value=datetime(2020, 1, 1, 9, 30), format="MM/DD/YY - hh:mm")
      st.write("Start time:", start_time)
 
-def slider_change():
-     dt1 = datetime.combine(datetime.today(), st.session_state.slider_value[0])
-     dt2 = datetime.combine(datetime.today(), st.session_state.slider_value[1])
-     delta = dt2 - dt1
-     if (delta < timedelta(hours=2)):
-          hr = dt1 + timedelta(hours=2)
-          st.session_state.slider_value = (st.session_state.slider_value[0], time(hr.hour, hr.minute))
+def day_nine():
+     st.header('Line chart')
+
+     chart_data = pd.DataFrame(
+          np.random.randn(20, 3),
+          columns=['a', 'b', 'c'])
+
+     st.line_chart(chart_data)
+
 
 if 'slider_value' not in st.session_state:
     st.session_state.slider_value = (time(11, 30), time(12, 45))
@@ -73,6 +83,7 @@ days = {
      "Day 3" : day_three,
      "Day 5" : day_five,
      "Day 8" : day_eight,
+     "Day 9" : day_nine,
 }
 
 main()
