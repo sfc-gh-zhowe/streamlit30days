@@ -120,7 +120,14 @@ def day_fourteen():
      pr = df.profile_report()
      st_profile_report(pr)
 
+def day_fifteen():
+     st.header('st.latex')
 
+     st.latex(r'''
+          a + ar + a r^2 + a r^3 + \cdots + a r^{n-1} =
+          \sum_{k=0}^{n-1} ar^k =
+          a \left(\frac{1-r^{n}}{1-r}\right)
+          ''')
 
 
 
@@ -140,6 +147,7 @@ days = {
      "Day 11" : day_eleven,
      "Day 12" : day_twelve,
      "Day 14" : day_fourteen,
+     "Day 15" : day_fifteen,
 }
 
 main()
