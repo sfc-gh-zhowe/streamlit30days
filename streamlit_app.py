@@ -7,6 +7,8 @@ import pandas_profiling
 from streamlit_pandas_profiling import st_profile_report
 
 def main():
+     st.set_page_config(layout="wide")
+
      with st.sidebar:
           day = st.selectbox("Select Day", (days.keys()))
      st.header(day)
@@ -176,8 +178,6 @@ def day_eighteen():
           st.info('☝️ Upload a CSV file')
 
 def day_nineteen():
-     st.set_page_config(layout="wide")
-
      st.title('How to layout your Streamlit app')
 
      with st.expander('About this app'):
