@@ -146,6 +146,21 @@ def day_sixteen():
      number = st.sidebar.slider('Select a number:', 0, 10, 5)
      st.write('Selected number from slider widget is:', number)
 
+def day_seventeen():
+     st.title('st.secrets')
+
+     st.write(st.secrets['message'])
+     st.write("DB username:", st.secrets["db_username"])
+     st.write("DB password:", st.secrets["db_password"])
+     st.write("My cool secrets:", st.secrets["my_cool_secrets"]["things_i_like"])
+
+     # And the root-level secrets are also accessible as environment variables:
+     import os
+     st.write(
+          "Has environment variables been set:",
+          os.environ["db_username"] == st.secrets["db_username"])
+          
+
 
 
 if 'slider_value' not in st.session_state:
@@ -164,6 +179,7 @@ days = {
      "Day 14" : day_fourteen,
      "Day 15" : day_fifteen,
      "Day 16" : day_sixteen,
+     "Day 17" : day_seventeen,
 }
 
 main()
