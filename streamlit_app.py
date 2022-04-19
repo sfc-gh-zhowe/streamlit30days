@@ -82,6 +82,18 @@ def day_ten():
 
      st.write('Your favorite color is ', option)
 
+def day_eleven():
+     st.header('st.multiselect')
+
+     options = st.multiselect(
+          'What are your favorite colors',
+          ['Green', 'Yellow', 'Red', 'Blue'],
+          ['Yellow', 'Red'])
+
+     st.write('You selected:', options)
+
+
+
 if 'slider_value' not in st.session_state:
     st.session_state.slider_value = (time(11, 30), time(12, 45))
 
@@ -93,6 +105,7 @@ days = {
      "Day 8"  : day_eight,
      "Day 9"  : day_nine,
      "Day 10" : day_ten,
+     "Day 11" : day_eleven,
 }
 
 main()
