@@ -3,6 +3,8 @@ import numpy as np
 import altair as alt
 import pandas as pd
 import streamlit as st
+import pandas_profiling 
+from streamlit_pandas_profiling import st_profile_report
 
 def main():
      with st.sidebar:
@@ -110,7 +112,13 @@ def day_twelve():
      if cola:
           st.write("Here you go 🥤")
 
+def day_fourteen():
+     st.header('`streamlit_pandas_profiling`')
 
+     df = pd.read_csv('https://raw.githubusercontent.com/dataprofessor/data/master/penguins_cleaned.csv')
+
+     pr = df.profile_report()
+     st_profile_report(pr)
 
 
 
@@ -131,6 +139,7 @@ days = {
      "Day 10" : day_ten,
      "Day 11" : day_eleven,
      "Day 12" : day_twelve,
+     "Day 14" : day_fourteen,
 }
 
 main()
