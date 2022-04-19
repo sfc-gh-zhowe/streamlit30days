@@ -73,17 +73,26 @@ def day_nine():
 
      st.line_chart(chart_data)
 
+def day_ten():
+     st.header('st.selectbox')
+
+     option = st.selectbox(
+          'What is your favorite color?',
+          ('Blue', 'Red', 'Green'))
+
+     st.write('Your favorite color is ', option)
 
 if 'slider_value' not in st.session_state:
     st.session_state.slider_value = (time(11, 30), time(12, 45))
 
 # map the inputs to the function blocks
 days = {
-     "Day 2" : day_two,
-     "Day 3" : day_three,
-     "Day 5" : day_five,
-     "Day 8" : day_eight,
-     "Day 9" : day_nine,
+     "Day 2"  : day_two,
+     "Day 3"  : day_three,
+     "Day 5"  : day_five,
+     "Day 8"  : day_eight,
+     "Day 9"  : day_nine,
+     "Day 10" : day_ten,
 }
 
 main()
