@@ -160,7 +160,7 @@ def day_seventeen():
           "Has environment variables been set:",
           os.environ["db_username"] == st.secrets["db_username"])
           
-def day_eighteen();
+def day_eighteen():
      st.title('st.file_uploader')
 
      st.subheader('Input CSV')
