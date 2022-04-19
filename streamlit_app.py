@@ -130,6 +130,7 @@ days = {
      "Day 9"  : day_nine,
      "Day 10" : day_ten,
      "Day 11" : day_eleven,
+     "Day 12" : day_twelve,
 }
 
 main()
